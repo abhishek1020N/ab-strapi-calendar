@@ -14,7 +14,7 @@
     "pluginOptions": {},
     "attributes": {      
       "name": {
-        "type": "text"
+        "type": "string"
       },
       "description": {
         "type": "richtext"
