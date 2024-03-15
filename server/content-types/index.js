@@ -1,7 +1,8 @@
-'use strict';
+"use strict";
 
-const schema = require('./schema');
+const event = require("./event");
+
 
 module.exports = {
-  schema,
+  event,
 };
