@@ -17,6 +17,15 @@ npm i ab-strapi-calendar
 
 ## How to Use
 
+In the schema file of a collection that is required to be mapped to calender view.
+
+```
+"options": {
+      "draftAndPublish": true,
+      "eventCalendarConfig": true
+  },
+```
+
 Open the settings page and select the calendar settings.
 
 Here you can select which collection and fields to use.

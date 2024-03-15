@@ -88,7 +88,7 @@ module.exports = () => ({
   async getCollections() {
     const types = strapi.contentTypes;
     const typesArray = Object.values(types);
-    return typesArray.filter((x) => x.kind === 'collectionType' && x.apiName);
+    return typesArray.filter((x) => x.kind === 'collectionType' && x?.options?.eventCalendarConfig === true);
   },
   async getExtensions() {
     return Object.entries(extensionSystem.getRegisteredExtensions()).map(([k, el]) => ({
