@@ -11,6 +11,10 @@ Copy the following code and run from your terminal
 yarn add ab-strapi-calendar
 ```
 
+```
+npm i ab-strapi-calendar
+```
+
 ## How to Use
 
 Open the settings page and select the calendar settings.
