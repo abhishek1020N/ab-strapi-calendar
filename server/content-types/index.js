@@ -5,5 +5,5 @@ const eventSession = require("./event-session");
 
 module.exports = {
   event,
-  eventSession
+  "event-session": eventSession
 };
