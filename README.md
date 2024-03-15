@@ -15,7 +15,5 @@ yarn add ab-strapi-calendar
 
 Open the settings page and select the calendar settings.
 
-![]
-
 Here you can select which collection and fields to use.
 You can also customize the calendar style and options.
