@@ -12,20 +12,41 @@
       "eventCalendarConfig": true
     },
     "pluginOptions": {},
-    "attributes": {
-      "Title": {
-        "type": "string"
+    "attributes": {      
+      "name": {
+        "type": "text"
       },
-      "Description": {
+      "description": {
         "type": "richtext"
       },
-      "StartDate": {
+      "has_sessions": {
+        "type": "boolean",
+        "default": false,
+        "required": true
+      },
+      "start_date": {
         "type": "datetime"
       },
-      "EndDate": {
+      "end_date": {
         "type": "datetime"
       },
-      "Image": {
+      "open_event": {
+        "type": "boolean",
+        "required": true,
+        "default": false
+      },
+      "original_capacity": {
+        "type": "integer"
+      },
+      "consumed_capacity": {
+        "type": "integer"
+      },
+      "event_sessions": {
+        "type": "relation",
+        "relation": "oneToMany",
+        "target": "plugin::calendar.event-session"
+      },
+      "image": {
         "allowedTypes": [
           "images"
         ],

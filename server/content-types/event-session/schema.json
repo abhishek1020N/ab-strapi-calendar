@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "event_sessions",
+  "info": {
+    "singularName": "event-session",
+    "pluralName": "event-sessions",
+    "displayName": "Event Sessions",
+    "description": ""
+  },
+    "options": {
+      "draftAndPublish": true,
+      "eventCalendarConfig": false
+    },
+    "pluginOptions": {},
+    "attributes": {      
+      "name": {
+        "type": "text"
+      },
+      "start_date": {
+        "type": "datetime"
+      },
+      "end_date": {
+        "type": "datetime"
+      },
+      "capacity": {
+        "type": "integer"
+      },
+      "open_session": {
+        "type": "boolean",
+        "default": false,
+        "required": true
+      }
+    }
+  }
+  
