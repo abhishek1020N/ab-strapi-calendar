@@ -114,14 +114,14 @@ module.exports = () => ({
   },
   async bookEvent(ctx) {
     const { body } = ctx.request;
-    const event = await entityService.findOne("plugin::calendar.event", body.event);
-    const session = await entityService.findOne("plugin::calendar.event-session", body.event_session);
+    const event = await strapi.entityService.findOne("plugin::calendar.event", body.event);
+    const session = await strapi.entityService.findOne("plugin::calendar.event-session", body.event_session);
     const res = await strapi.entityService.create("plugin::calendar.event-submission", {
-      data: body,
+      data: {...body, publishedAt: new Date()},
     });
     if(res?.id > 0 && !body?.open_submission) {
-      await strapi.entityService.update(
-        "plugin::calendar.event",
+      const resEventSession = await strapi.entityService.update(
+        "plugin::calendar.event-session",
         session?.id,
         {
           data: {
@@ -129,7 +129,7 @@ module.exports = () => ({
           },
         }
       );
-      await strapi.entityService.update(
+      const resEvent = await strapi.entityService.update(
         "plugin::calendar.event",
         event?.id,
         {
