@@ -112,4 +112,33 @@ module.exports = () => ({
     await pluginStore.set({ key: 'settings', value });
     return pluginStore.get({ key: 'settings' });
   },
+  async bookEvent(ctx) {
+    const { body } = ctx.request;
+    const event = await entityService.findOne("plugin::calendar.event", body.event);
+    const session = await entityService.findOne("plugin::calendar.event-session", body.event_session);
+    const res = await strapi.entityService.create("plugin::calendar.event-submission", {
+      data: body,
+    });
+    if(res?.id > 0 && !body?.open_submission) {
+      await strapi.entityService.update(
+        "plugin::calendar.event",
+        session?.id,
+        {
+          data: {
+            capacity: session?.capacity - 1
+          },
+        }
+      );
+      await strapi.entityService.update(
+        "plugin::calendar.event",
+        event?.id,
+        {
+          data: {
+            consumed_capacity: event?.consumed_capacity + 1
+          },
+        }
+      );
+    }
+    return res;
+  }
 });

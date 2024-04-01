@@ -38,4 +38,13 @@ module.exports = {
       ctx.throw(500, err);
     }
   },
+  async bookEvent(ctx) {
+    try {
+      const response = await strapi.plugin('calendar').service('service').bookEvent(ctx);
+      const sanitizedEntity = await this.sanitizeOutput(response, ctx);
+      return this.transformResponse(sanitizedEntity);
+    } catch (err) {
+      ctx.throw(500, err);
+    }
+  },
 };

@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "event_submissions",
+  "info": {
+    "singularName": "event-submission",
+    "pluralName": "event-submissions",
+    "displayName": "Event Submissions",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true,
+    "eventCalendarConfig": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user_id": {
+      "type": "text"
+    },
+    "submission_date": {
+      "type": "datetime"
+    },
+    "open_submission": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "event": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::calendar.event",
+      "mappedBy": "calendar_event_submission"
+    },
+    "event_session": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::calendar.event-session",
+      "mappedBy": "calendar_event_submission"
+    }
+  }
+}

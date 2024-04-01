@@ -1,58 +1,64 @@
 {
-    "kind": "collectionType",
-    "collectionName": "events",
-    "info": {
-      "singularName": "event",
-      "pluralName": "events",
-      "displayName": "Events",
-      "description": ""
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Events",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true,
+    "eventCalendarConfig": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
     },
-    "options": {
-      "draftAndPublish": true,
-      "eventCalendarConfig": true
+    "description": {
+      "type": "richtext"
     },
-    "pluginOptions": {},
-    "attributes": {      
-      "name": {
-        "type": "string"
-      },
-      "description": {
-        "type": "richtext"
-      },
-      "has_sessions": {
-        "type": "boolean",
-        "default": false,
-        "required": true
-      },
-      "start_date": {
-        "type": "datetime"
-      },
-      "end_date": {
-        "type": "datetime"
-      },
-      "open_event": {
-        "type": "boolean",
-        "required": true,
-        "default": false
-      },
-      "original_capacity": {
-        "type": "integer"
-      },
-      "consumed_capacity": {
-        "type": "integer"
-      },
-      "event_sessions": {
-        "type": "relation",
-        "relation": "oneToMany",
-        "target": "plugin::calendar.event-session"
-      },
-      "image": {
-        "allowedTypes": [
-          "images"
-        ],
-        "type": "media",
-        "multiple": false
-      }
+    "has_sessions": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "start_date": {
+      "type": "datetime"
+    },
+    "end_date": {
+      "type": "datetime"
+    },
+    "open_event": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "original_capacity": {
+      "type": "integer"
+    },
+    "consumed_capacity": {
+      "type": "integer"
+    },
+    "event_sessions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::calendar.event-session"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "calendar_event_submission": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::calendar.event-submission",
+      "inversedBy": "event"
     }
   }
-  
+}

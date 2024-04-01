@@ -7,29 +7,33 @@
     "displayName": "Event Sessions",
     "description": ""
   },
-    "options": {
-      "draftAndPublish": true,
-      "eventCalendarConfig": false
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "text"
     },
-    "pluginOptions": {},
-    "attributes": {      
-      "name": {
-        "type": "text"
-      },
-      "start_date": {
-        "type": "datetime"
-      },
-      "end_date": {
-        "type": "datetime"
-      },
-      "capacity": {
-        "type": "integer"
-      },
-      "open_session": {
-        "type": "boolean",
-        "default": false,
-        "required": true
-      }
+    "start_date": {
+      "type": "datetime"
+    },
+    "end_date": {
+      "type": "datetime"
+    },
+    "capacity": {
+      "type": "integer"
+    },
+    "open_session": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "calendar_event_submission": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::calendar.event-submission",
+      "inversedBy": "event_session"
     }
   }
-  
+}

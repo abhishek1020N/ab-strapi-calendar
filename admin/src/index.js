@@ -3,7 +3,7 @@ import CalendarIcon from '@strapi/icons/Calendar';
 import pluginPkg from '../../package.json';
 import pluginId from './pluginId';
 import Initializer from './components/Initializer';
-
+import { pluginPermissions } from './permissions';
 const name = pluginPkg.strapi.displayName;
 
 export default {
@@ -20,13 +20,7 @@ export default {
 
         return component;
       },
-      permissions: [
-        // Uncomment to set the permissions of the plugin here
-        // {
-        //   action: '', // the action name should be plugin::plugin-name.actionType
-        //   subject: null,
-        // },
-      ],
+      permissions: pluginPermissions.main,
     });
     app.createSettingSection(
       {
