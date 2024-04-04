@@ -41,8 +41,7 @@ module.exports = {
   async bookEvent(ctx) {
     try {
       const response = await strapi.plugin('calendar').service('service').bookEvent(ctx);
-      const sanitizedEntity = await this.sanitizeOutput(response, ctx);
-      return this.transformResponse(sanitizedEntity);
+      return response;
     } catch (err) {
       ctx.throw(500, err);
     }
