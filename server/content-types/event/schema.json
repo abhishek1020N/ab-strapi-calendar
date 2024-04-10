@@ -41,12 +41,7 @@
     "consumed_capacity": {
       "type": "integer"
     },
-    "event_sessions": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "plugin::calendar.event-session"
-    },
-    "image": {
+    "thumbnail_image": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -54,11 +49,39 @@
         "images"
       ]
     },
+    "event_sessions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::calendar.event-session"
+    },
     "calendar_event_submission": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::calendar.event-submission",
       "inversedBy": "event"
+    },
+    "event_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::calendar.event-type"
+    },
+    "location": {
+      "type": "string"
+    },
+    "video_link": {
+      "type": "text"
+    },
+    "allow_registration": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "banner_image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }
