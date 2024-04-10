@@ -19,28 +19,6 @@
     "description": {
       "type": "richtext"
     },
-    "has_sessions": {
-      "type": "boolean",
-      "default": false,
-      "required": true
-    },
-    "start_date": {
-      "type": "datetime"
-    },
-    "end_date": {
-      "type": "datetime"
-    },
-    "open_event": {
-      "type": "boolean",
-      "required": true,
-      "default": false
-    },
-    "original_capacity": {
-      "type": "integer"
-    },
-    "consumed_capacity": {
-      "type": "integer"
-    },
     "thumbnail_image": {
       "type": "media",
       "multiple": false,
@@ -49,16 +27,17 @@
         "images"
       ]
     },
-    "event_sessions": {
+    "banner_image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "event_category": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "plugin::calendar.event-session"
-    },
-    "calendar_event_submission": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::calendar.event-submission",
-      "inversedBy": "event"
+      "target": "plugin::calendar.event-category"
     },
     "event_type": {
       "type": "relation",
@@ -71,17 +50,43 @@
     "video_link": {
       "type": "text"
     },
-    "allow_registration": {
+    "open_event": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "start_date": {
+      "type": "datetime"
+    },
+    "end_date": {
+      "type": "datetime"
+    },
+    "original_capacity": {
+      "type": "integer"
+    },
+    "consumed_capacity": {
+      "type": "integer"
+    },
+    "has_sessions": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "banner_image": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": true
+    "event_sessions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::calendar.event-session"
+    },
+    "calendar_event_submission": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::calendar.event-submission",
+      "inversedBy": "event"
+    },
+    "allow_registration": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }
