@@ -14,7 +14,7 @@
   "pluginOptions": {},
   "attributes": {
     "user_id": {
-      "type": "text"
+      "type": "string"
     },
     "submission_date": {
       "type": "datetime"
