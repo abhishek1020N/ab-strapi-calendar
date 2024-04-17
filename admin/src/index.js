@@ -20,7 +20,7 @@ export default {
 
         return component;
       },
-      permissions: pluginPermissions.main,
+      // permissions: pluginPermissions.main,
     });
     app.createSettingSection(
       {
