@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+
 module.exports = {
     type: 'content-api',
     routes: [
@@ -10,6 +11,6 @@ module.exports = {
             config: {
                 policies: [],
             },
-        },
+        }
     ],
 };

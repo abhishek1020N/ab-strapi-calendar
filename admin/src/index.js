@@ -20,7 +20,13 @@ export default {
 
         return component;
       },
-      // permissions: pluginPermissions.main,
+      permissions: [
+        // Uncomment to set the permissions of the plugin here
+        // {
+        //   action: '', // the action name should be plugin::plugin-name.actionType
+        //   subject: null,
+        // },
+      ],
     });
     app.createSettingSection(
       {
